@@ -48,6 +48,7 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -72,7 +73,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Time: 1
+  m_Time: 0.1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -81,29 +82,29 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0.0036735535
-        value: 0.81443214
-        inSlope: 0.35758802
-        outSlope: 0.35758802
+        value: 0.5
+        inSlope: -0.41691536
+        outSlope: -0.41691536
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.06510961
+        outWeight: 0.17195813
       - serializedVersion: 3
-        time: 0.9999919
-        value: 0.2036019
-        inSlope: -0.8351908
-        outSlope: -0.8351908
+        time: 1
+        value: 0
+        inSlope: 0.044817917
+        outSlope: 0.044817917
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.071245715
+        inWeight: 0.15996264
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.7921569, g: 0.68766177, b: 0.12941176, a: 1}
-      key1: {r: 0.9716981, g: 0.14208792, b: 0.14208792, a: 1}
+      key0: {r: 0.48754376, g: 0.12941176, b: 0.7921569, a: 1}
+      key1: {r: 0.972549, g: 0.14117645, b: 0.22605118, a: 0.8745098}
       key2: {r: 1, g: 1, b: 1, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -147,6 +148,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2742073144435075506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5b53bc0b6d8d104baae8644cb4cf7ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f58227bf88f49b1830588ca1cd4d4d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _zPosition: 0

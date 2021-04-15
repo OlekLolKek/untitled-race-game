@@ -47,6 +47,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -94,8 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b368719156d46474b852e8c56e609477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leftBorder: -17.81
-  _rightBorder: 17.82
+  _leftBorder: -14.06
+  _rightBorder: 21.57
   _relativeSpeedRate: 1
 --- !u!1 &2568450156852823711
 GameObject:
@@ -144,6 +145,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -191,8 +193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b368719156d46474b852e8c56e609477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leftBorder: -20.45
-  _rightBorder: 20.46
+  _leftBorder: -16.7
+  _rightBorder: 24.21
   _relativeSpeedRate: 0.3
 --- !u!1 &2807479611546755954
 GameObject:
@@ -292,6 +294,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -339,8 +342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b368719156d46474b852e8c56e609477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leftBorder: -17.81
-  _rightBorder: 17.82
+  _leftBorder: -14.06
+  _rightBorder: 21.57
   _relativeSpeedRate: 1
 --- !u!1 &3590461184429166328
 GameObject:
@@ -389,6 +392,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -436,8 +440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b368719156d46474b852e8c56e609477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leftBorder: -17.81
-  _rightBorder: 17.82
+  _leftBorder: -14.06
+  _rightBorder: 21.57
   _relativeSpeedRate: 1
 --- !u!1 &5625024096290961257
 GameObject:
@@ -486,6 +490,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -533,8 +538,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b368719156d46474b852e8c56e609477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leftBorder: -20.45
-  _rightBorder: 20.46
+  _leftBorder: -16.7
+  _rightBorder: 24.21
   _relativeSpeedRate: 0.3
 --- !u!1 &7039704320274304650
 GameObject:
@@ -583,6 +588,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -630,8 +636,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b368719156d46474b852e8c56e609477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leftBorder: -20.45
-  _rightBorder: 20.46
+  _leftBorder: -16.7
+  _rightBorder: 24.21
   _relativeSpeedRate: 0.3
 --- !u!1 &8833280361136734726
 GameObject:
