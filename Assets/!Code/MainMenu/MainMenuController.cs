@@ -22,6 +22,7 @@ namespace Ui
             _view.Init(StartGame);
 
             _mainMenuTrailController = new MainMenuTrailController();
+            AddController(_mainMenuTrailController);
         }
 
         private MainMenuView LoadView(Transform placeForUi)
