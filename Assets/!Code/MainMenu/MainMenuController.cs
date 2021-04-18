@@ -1,4 +1,5 @@
-﻿using Profile;
+﻿using Ads;
+using Profile;
 using Tools;
 using UnityEngine;
 
@@ -12,12 +13,15 @@ namespace Ui
             PathResource = "Prefabs/mainMenu"
         };
         private readonly ProfilePlayer _profilePlayer;
+        private readonly UnityAdsTools _unityAdsTools;
         private readonly MainMenuTrailController _mainMenuTrailController;
         private readonly MainMenuView _view;
         
-        public MainMenuController(Transform placeForUi, ProfilePlayer profilePlayer)
+        public MainMenuController(Transform placeForUi, ProfilePlayer profilePlayer,
+            UnityAdsTools unityAdsTools)
         {
             _profilePlayer = profilePlayer;
+            _unityAdsTools = unityAdsTools;
             _view = LoadView(placeForUi);
             _view.Init(StartGame);
 
@@ -39,6 +43,7 @@ namespace Ui
         private void StartGame()
         {
             _profilePlayer.CurrentState.Value = GameState.Game;
+            _profilePlayer.AnalyticTools.SendMessage("start_game");
         }
     }
 }
