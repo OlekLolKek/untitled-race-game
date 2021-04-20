@@ -1,5 +1,6 @@
 ﻿using Game.InputLogic;
 using Game.TapeBackground;
+using Inventory;
 using Profile;
 using Tools;
 using UnityEngine;
@@ -12,12 +13,28 @@ namespace Game
         {
             SubscriptionProperty<float> leftMoveDiff = new SubscriptionProperty<float>();
             SubscriptionProperty<float> rightMoveDiff = new SubscriptionProperty<float>();
-            TapeBackgroundController tapeBackgroundController = new TapeBackgroundController(leftMoveDiff, rightMoveDiff);
+
+            InventoryModel inventoryModel = new InventoryModel();
+            
+            TapeBackgroundController tapeBackgroundController = 
+                new TapeBackgroundController(leftMoveDiff, rightMoveDiff);
+            
             AddController(tapeBackgroundController);
-            InputGameController inputGameController = new InputGameController(leftMoveDiff, rightMoveDiff, profilePlayer.CurrentCar);
+            
+            InputGameController inputGameController = 
+                new InputGameController(leftMoveDiff, rightMoveDiff, profilePlayer.CurrentCar);
+            
             AddController(inputGameController);
-            CarController carController = new CarController();
+            
+            CarController carController = 
+                new CarController();
+            
             AddController(carController);
+            
+            InventoryController inventoryController = 
+                new InventoryController(inventoryModel);
+            
+            AddController(inventoryController);
         }
     }
 }
