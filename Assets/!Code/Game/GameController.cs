@@ -30,11 +30,6 @@ namespace Game
                 new CarController();
             
             AddController(carController);
-            
-            InventoryController inventoryController = 
-                new InventoryController(inventoryModel);
-            
-            AddController(inventoryController);
         }
     }
 }

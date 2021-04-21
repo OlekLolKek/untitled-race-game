@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace Tools
 {
     internal sealed class SubscriptionAction : IReadOnlySubscriptionAction

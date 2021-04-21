@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
+using UI;
 
 
 namespace Inventory
 {
-    public interface IInventoryView
+    public interface IInventoryView : IView
     {
         event EventHandler<IItem> Selected;
         event EventHandler<IItem> Deselected;
-        void Display(List<IItem> items);
+        void Display(List<IItem> itemInfoCollection);
     }
 }
