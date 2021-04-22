@@ -8,8 +8,10 @@ namespace Inventory
     {
         [SerializeField] private int _id;
         [SerializeField] private string _title;
+        [SerializeField] private string _description;
 
         public int ID => _id;
         public string Title => _title;
+        public string Description => _description;
     }
 }

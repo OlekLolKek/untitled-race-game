@@ -7,6 +7,7 @@ namespace Inventory
 {
     public class InventoryView : MonoBehaviour, IInventoryView
     {
+        [SerializeField] private InventoryItemView _inventoryItemViewPrefab;
         private List<IItem> _itemInfoCollection;
         
         public event EventHandler<IItem> Selected;
@@ -25,6 +26,17 @@ namespace Inventory
         public void Display(List<IItem> itemInfoCollection)
         {
             _itemInfoCollection = itemInfoCollection;
+
+            for (int i = 0; i < _itemInfoCollection.Count; i++)
+            {
+                var position = Vector3.zero;
+                Debug.Log(_inventoryItemViewPrefab.Image.flexibleWidth);
+                Debug.Log(_inventoryItemViewPrefab.Image.minWidth);
+                Debug.Log(_inventoryItemViewPrefab.Image.preferredWidth);
+                Debug.Log(_inventoryItemViewPrefab.Image.rectTransform.sizeDelta.x);
+                //position.x += 
+                //Instantiate(_inventoryItemViewPrefab,  )
+            }
         }
 
         protected virtual void OnSelected(IItem e)

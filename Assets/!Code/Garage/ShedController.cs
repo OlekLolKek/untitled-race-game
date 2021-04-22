@@ -32,6 +32,8 @@ namespace Garage
             _upgradable =
                 upgradable ??
                 throw new ArgumentNullException(nameof(upgradable));
+
+            Enter();
         }
 
         private void UpgradeCarWithEquippedItems(
