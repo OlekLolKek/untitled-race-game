@@ -4,23 +4,17 @@ using Inventory;
 
 namespace Garage
 {
-    public class UpgradeHandlersRepository : BaseController
+    public class UpgradeHandlersRepository : IRepository<int, IUpgradeHandler>
     {
-        public IReadOnlyDictionary<int, IUpgradeHandler> UpgradeItems 
+        public IReadOnlyDictionary<int, IUpgradeHandler> Collection 
             => _upgradeItemsMapById;
         
-        private Dictionary<int, IUpgradeHandler> _upgradeItemsMapById 
+        private readonly Dictionary<int, IUpgradeHandler> _upgradeItemsMapById 
             = new Dictionary<int, IUpgradeHandler>();
 
         public UpgradeHandlersRepository(List<UpgradeItemConfig> upgradeItemConfigs)
         {
             PopulateItems(ref _upgradeItemsMapById, upgradeItemConfigs);
-        }
-
-        protected override void OnDispose()
-        {
-            _upgradeItemsMapById.Clear();
-            _upgradeItemsMapById = null;
         }
 
         private void PopulateItems(

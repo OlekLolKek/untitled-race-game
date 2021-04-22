@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Garage;
 using JetBrains.Annotations;
-using Tools;
-using UnityEngine;
-using Object = UnityEngine.Object;
 
 
 namespace Inventory
@@ -30,12 +27,13 @@ namespace Inventory
             
             _inventoryView
                 = inventoryView ?? throw new ArgumentNullException(nameof(_inventoryView));
+            
+            SetupView(_inventoryView);
         }
 
         protected override void OnDispose()
         {
             CleanupView();
-            base.OnDispose();
         }
 
         public IReadOnlyList<IItem> GetEquippedItems()

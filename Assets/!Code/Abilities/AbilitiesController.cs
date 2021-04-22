@@ -57,5 +57,11 @@ namespace Abilities
             _abilityCollectionView.Show();
             _abilityCollectionView.Display(_inventoryModel.GetEquippedItems());
         }
+
+        protected override void OnDispose()
+        {
+            base.OnDispose();
+            CleanupView(_abilityCollectionView);
+        }
     }
 }

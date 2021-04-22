@@ -1,4 +1,7 @@
-﻿using Ads;
+﻿using System.Linq;
+using Ads;
+using Garage;
+using Inventory;
 using Profile;
 using Tools;
 using UnityEngine;
@@ -27,6 +30,9 @@ namespace Ui
 
             _mainMenuTrailController = new MainMenuTrailController();
             AddController(_mainMenuTrailController);
+
+            var shedController = ConfigureShedController(placeForUi, profilePlayer);
+            AddController(shedController);
         }
 
         private MainMenuView LoadView(Transform placeForUi)
@@ -38,6 +44,39 @@ namespace Ui
                     false);
             AddGameObjects(objectView);
             return objectView.GetComponent<MainMenuView>();
+        }
+
+        private BaseController ConfigureShedController(
+            Transform placeForUi,
+            ProfilePlayer profilePlayer)
+        {
+            var upgradeItemsConfigCollection
+                = ContentDataSourceLoader.LoadUpgradeItemConfigs(new ResourcePath()
+                    {PathResource = "DataSource/Upgrade/UpgradeItemConfigDataSource"});
+
+            var upgradeItemsRepository
+                = new UpgradeHandlersRepository(upgradeItemsConfigCollection);
+
+            var itemsRepository
+                = new ItemsRepository(upgradeItemsConfigCollection.Select(
+                    value => value.ItemConfig).ToList());
+            var inventoryModel
+                = new InventoryModel();
+            var inventoryViewPath
+                = new ResourcePath {PathResource = $"Prefabs/{nameof(InventoryView)}"};
+            var inventoryView
+                = ResourceLoader.LoadAndInstantiateObject<InventoryView>(
+                    inventoryViewPath, placeForUi, false);
+            AddGameObjects(inventoryView.gameObject);
+            var inventoryController
+                = new InventoryController(itemsRepository, inventoryModel, inventoryView);
+            AddController(inventoryController);
+
+            var shedController
+                = new ShedController(upgradeItemsRepository, inventoryController, profilePlayer.CurrentCar);
+            AddController(shedController);
+            
+            return shedController;
         }
 
         private void StartGame()

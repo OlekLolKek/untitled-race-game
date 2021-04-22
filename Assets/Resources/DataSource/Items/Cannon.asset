@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95fdcb71e8e64e87b5b2370f36f43708, type: 3}
-  m_Name: GunAbility
+  m_Script: {fileID: 11500000, guid: d7a85358b1694e419eba2f29944f62f7, type: 3}
+  m_Name: Cannon
   m_EditorClassIdentifier: 
-  _itemConfig: {fileID: 11400000, guid: d16aec918b18d92478cc18348f244c62, type: 2}
-  _view: {fileID: 0}
-  _type: 1
-  _value: 100
+  _id: 1
+  _title: Cannon
