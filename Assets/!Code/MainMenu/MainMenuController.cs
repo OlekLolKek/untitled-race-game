@@ -18,6 +18,7 @@ namespace Ui
         private readonly ProfilePlayer _profilePlayer;
         private readonly UnityAdsTools _unityAdsTools;
         private readonly MainMenuTrailController _mainMenuTrailController;
+        private readonly ShedController _shedController;
         private readonly MainMenuView _view;
         
         public MainMenuController(Transform placeForUi, ProfilePlayer profilePlayer,
@@ -26,13 +27,13 @@ namespace Ui
             _profilePlayer = profilePlayer;
             _unityAdsTools = unityAdsTools;
             _view = LoadView(placeForUi);
-            _view.Init(StartGame);
+            _view.Init(StartGame, EnterGarage);
 
             _mainMenuTrailController = new MainMenuTrailController();
             AddController(_mainMenuTrailController);
 
-            var shedController = ConfigureShedController(placeForUi, profilePlayer);
-            AddController(shedController);
+            _shedController = ConfigureShedController(placeForUi, profilePlayer);
+            AddController(_shedController);
         }
 
         private MainMenuView LoadView(Transform placeForUi)
@@ -46,7 +47,7 @@ namespace Ui
             return objectView.GetComponent<MainMenuView>();
         }
 
-        private BaseController ConfigureShedController(
+        private ShedController ConfigureShedController(
             Transform placeForUi,
             ProfilePlayer profilePlayer)
         {
@@ -83,6 +84,11 @@ namespace Ui
         {
             _profilePlayer.CurrentState.Value = GameState.Game;
             _profilePlayer.AnalyticTools.SendMessage("start_game");
+        }
+
+        private void EnterGarage()
+        {
+            _shedController.Enter();
         }
     }
 }

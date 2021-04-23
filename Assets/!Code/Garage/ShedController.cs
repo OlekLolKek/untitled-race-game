@@ -32,8 +32,6 @@ namespace Garage
             _upgradable =
                 upgradable ??
                 throw new ArgumentNullException(nameof(upgradable));
-
-            Enter();
         }
 
         private void UpgradeCarWithEquippedItems(
@@ -64,5 +62,15 @@ namespace Garage
                 _upgradeHandlersRepository.Collection);
             Debug.Log($"Exit: car speed is {_upgradable.Speed}");
         }
+
+        #region Overrides of BaseController
+
+        protected override void OnDispose()
+        {
+            base.OnDispose();
+            Exit();
+        }
+
+        #endregion
     }
 }

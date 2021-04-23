@@ -1,5 +1,6 @@
 ﻿
 using Garage;
+using UnityEngine;
 
 
 namespace Profile
@@ -18,6 +19,7 @@ namespace Profile
 
         public void Restore()
         {
+            Debug.Log("Restored speed");
             Speed = _defaultSpeed;
         }
 

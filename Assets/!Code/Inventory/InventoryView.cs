@@ -30,13 +30,26 @@ namespace Inventory
             for (int i = 0; i < _itemInfoCollection.Count; i++)
             {
                 var position = Vector3.zero;
-                Debug.Log(_inventoryItemViewPrefab.Image.flexibleWidth);
-                Debug.Log(_inventoryItemViewPrefab.Image.minWidth);
-                Debug.Log(_inventoryItemViewPrefab.Image.preferredWidth);
-                Debug.Log(_inventoryItemViewPrefab.Image.rectTransform.sizeDelta.x);
-                //position.x += 
-                //Instantiate(_inventoryItemViewPrefab,  )
+                position.x += _inventoryItemViewPrefab.Image.rectTransform.sizeDelta.x * i;
+                var button = Instantiate(_inventoryItemViewPrefab, position, Quaternion.identity, transform);
+                var i1 = i;
+                button.Button.onClick.AddListener(() => OnItemButtonClicked(_itemInfoCollection[i1]));
             }
+        }
+
+        private void OnItemButtonClicked(IItem item)
+        {
+            Debug.Log($"Clicked: {item.IsSelected}");
+            if (item.IsSelected)
+            {
+                OnDeselected(item);
+            }
+            else
+            {
+                OnSelected(item);
+            }
+
+            item.IsSelected = !item.IsSelected;
         }
 
         protected virtual void OnSelected(IItem e)
