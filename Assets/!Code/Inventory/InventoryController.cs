@@ -45,7 +45,6 @@ namespace Inventory
         {
             _hideAction = hideAction;
             _inventoryView.Show();
-            _inventoryView.Display(_itemsRepository.Collection.Values.ToList());
         }
 
         public void HideInventory()
@@ -56,12 +55,16 @@ namespace Inventory
 
         private void SetupView(IInventoryView inventoryView)
         {
+            inventoryView.Initialize();
+            inventoryView.Display(_itemsRepository.Collection.Values.ToList());
+            inventoryView.InventoryClosed += HideInventory;
             inventoryView.Selected += OnItemSelected;
             inventoryView.Deselected += OnItemDeselected;
         }
 
         private void CleanupView()
         {
+            _inventoryView.InventoryClosed -= HideInventory;
             _inventoryView.Selected -= OnItemSelected;
             _inventoryView.Deselected -= OnItemDeselected;
         }

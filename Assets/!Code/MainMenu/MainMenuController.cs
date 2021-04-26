@@ -51,12 +51,20 @@ namespace Ui
             Transform placeForUi,
             ProfilePlayer profilePlayer)
         {
+            //TODO: extract path strings to variables
             var upgradeItemsConfigCollection
                 = ContentDataSourceLoader.LoadUpgradeItemConfigs(new ResourcePath()
                     {PathResource = "DataSource/Upgrade/UpgradeItemConfigDataSource"});
 
+            var defaultItemsConfigCollection
+                = ContentDataSourceLoader.LoadUpgradeItemConfigs(new ResourcePath()
+                    {PathResource = "DataSource/Upgrade/DefaultUpgradeItemConfigDataSource"});
+
             var upgradeItemsRepository
                 = new UpgradeHandlersRepository(upgradeItemsConfigCollection);
+
+            var defaultUpgradeItemsRepository
+                = new UpgradeHandlersRepository(defaultItemsConfigCollection);
 
             var itemsRepository
                 = new ItemsRepository(upgradeItemsConfigCollection.Select(
@@ -74,7 +82,8 @@ namespace Ui
             AddController(inventoryController);
 
             var shedController
-                = new ShedController(upgradeItemsRepository, inventoryController, profilePlayer.CurrentCar);
+                = new ShedController(upgradeItemsRepository, defaultUpgradeItemsRepository, itemsRepository, 
+                    inventoryController, profilePlayer.CurrentCar);
             AddController(shedController);
             
             return shedController;

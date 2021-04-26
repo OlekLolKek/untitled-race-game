@@ -22,7 +22,6 @@ namespace Profile
             Debug.Log("Restored speed");
             Speed = _defaultSpeed;
         }
-
     }
 }
 

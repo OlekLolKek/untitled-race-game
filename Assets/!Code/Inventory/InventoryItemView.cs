@@ -6,10 +6,10 @@ namespace Inventory
 {
     public class InventoryItemView : MonoBehaviour
     {
-        [SerializeField] private Button _button;
+        [SerializeField] private Toggle _toggle;
         [SerializeField] private Image _image;
-
-        public Button Button => _button;
+        
+        public Toggle Toggle => _toggle;
         public Image Image => _image;
     }
 }

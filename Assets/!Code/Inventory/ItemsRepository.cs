@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Garage;
+using UnityEngine;
 
 
 namespace Inventory
@@ -28,6 +29,7 @@ namespace Inventory
         {
             foreach (var config in configs)
             {
+                Debug.Log($"{config.ID} {config.Title}");
                 if (!upgradeHandlersMapByType.ContainsKey(config.ID))
                 {
                     upgradeHandlersMapByType.Add(config.ID, CreateItem(config));
@@ -42,7 +44,9 @@ namespace Inventory
                 Id = config.ID,
                 Info = new ItemInfo
                 {
-                    Title = config.Title
+                    Title = config.Title,
+                    Description = config.Description,
+                    Icon = config.Icon
                 }
             };
         }
