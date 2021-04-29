@@ -23,7 +23,11 @@ namespace AI
             get
             {
                 var kHealth = _healthPlayer > MAX_PLAYER_HEALTH ? 100 : 5;
-                var force = (int) (_moneyPlayer / COINS + kHealth + _forcePlayer / FORCE);
+                var force = (int) ((_forcePlayer - _moneyPlayer - _healthPlayer) * FORCE);
+                if (force < 0)
+                {
+                    force = 0;
+                }
 
                 return force;
             }
