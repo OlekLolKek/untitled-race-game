@@ -66,7 +66,7 @@ ScriptedImporter:
     generateCubemap: 0
     mipmapFadeDistanceEnd: 3
   animationSettings: []
-  texture: {instanceID: 0}
+  texture: {fileID: -8328923581568760697, guid: cd8b4d2feab6eac41bb6375d145de91e, type: 3}
   spriteImportData:
   - name: PremiumCoin
     rect:
