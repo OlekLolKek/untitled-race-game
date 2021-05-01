@@ -469,20 +469,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 497690678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23111749f7e940ffbfc114af8e477fb6, type: 3}
+  m_Script: {fileID: 11500000, guid: aa792d7f558243b0b2efeb2fda7a74d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moneyCountText: {fileID: 0}
-  _healthCountText: {fileID: 0}
-  _forceCountText: {fileID: 0}
-  _enemyForceCountText: {fileID: 0}
-  _addCoinsButton: {fileID: 0}
-  _minusCoinsButton: {fileID: 0}
-  _addHealthButton: {fileID: 0}
-  _minusHealthButton: {fileID: 0}
-  _addForceButton: {fileID: 0}
-  _minusForceButton: {fileID: 0}
-  _fightButton: {fileID: 0}
+  _timeCooldown: 86400
+  _timeDeadLine: 172800
+  _rewards:
+  - _rewardType: 0
+    _iconCurrency: {fileID: 6196343332235551553, guid: 827b2f4becd9c9845ae1cc4b9fe3a3bb, type: 3}
+    _countCurrency: 50
+  - _rewardType: 0
+    _iconCurrency: {fileID: 6196343332235551553, guid: 827b2f4becd9c9845ae1cc4b9fe3a3bb, type: 3}
+    _countCurrency: 75
+  - _rewardType: 0
+    _iconCurrency: {fileID: 6196343332235551553, guid: 827b2f4becd9c9845ae1cc4b9fe3a3bb, type: 3}
+    _countCurrency: 100
+  - _rewardType: 0
+    _iconCurrency: {fileID: 6196343332235551553, guid: 827b2f4becd9c9845ae1cc4b9fe3a3bb, type: 3}
+    _countCurrency: 150
+  - _rewardType: 0
+    _iconCurrency: {fileID: 6196343332235551553, guid: 827b2f4becd9c9845ae1cc4b9fe3a3bb, type: 3}
+    _countCurrency: 250
+  - _rewardType: 1
+    _iconCurrency: {fileID: -2946003921615919354, guid: cd8b4d2feab6eac41bb6375d145de91e, type: 3}
+    _countCurrency: 10
+  _timerNewReward: {fileID: 581811335}
+  _mountRootSlotsReward: {fileID: 1590449022}
+  _containerSlotRewardView: {fileID: 5037819734886152728, guid: 06c22c11a56e5774b92138673d67b2b9, type: 3}
+  _getRewardButton: {fileID: 614925057}
+  _resetButton: {fileID: 1322227054}
 --- !u!114 &497690680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,7 +725,7 @@ GameObject:
   - component: {fileID: 600184110}
   - component: {fileID: 600184109}
   - component: {fileID: 600184108}
-  - component: {fileID: 600184107}
+  - component: {fileID: 600184112}
   m_Layer: 5
   m_Name: CurrencyWindow
   m_TagString: Untagged
@@ -718,29 +733,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &600184107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600184106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23111749f7e940ffbfc114af8e477fb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moneyCountText: {fileID: 0}
-  _healthCountText: {fileID: 0}
-  _forceCountText: {fileID: 0}
-  _enemyForceCountText: {fileID: 0}
-  _addCoinsButton: {fileID: 0}
-  _minusCoinsButton: {fileID: 0}
-  _addHealthButton: {fileID: 0}
-  _minusHealthButton: {fileID: 0}
-  _addForceButton: {fileID: 0}
-  _minusForceButton: {fileID: 0}
-  _fightButton: {fileID: 0}
 --- !u!114 &600184108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -822,6 +814,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &600184112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600184106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fffeb99199274041be7ec205f23014cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentCountCoin: {fileID: 3315498034860248655}
+  _currentCountPremiumCoin: {fileID: 8616498576718195282}
 --- !u!1 &614925055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,6 +1349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1959096048}
+  - component: {fileID: 1959096049}
   m_Layer: 0
   m_Name: InstallView
   m_TagString: Untagged
@@ -1364,6 +1371,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1959096049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959096047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a93ad5af95ac41899075438becbf1ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dailyRewardView: {fileID: 497690679}
 --- !u!1 &2057323656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,6 +1518,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4e0de5d409a49841a9e1d6a2f721d81, type: 3}
+--- !u!114 &3315498034860248655 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1005008411888829330, guid: b4e0de5d409a49841a9e1d6a2f721d81, type: 3}
+  m_PrefabInstance: {fileID: 3315498034860248654}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8616498576718195281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1595,3 +1626,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57b3462a68603da4f8284f6f36f0f5e5, type: 3}
+--- !u!114 &8616498576718195282 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2589994430871441866, guid: 57b3462a68603da4f8284f6f36f0f5e5, type: 3}
+  m_PrefabInstance: {fileID: 8616498576718195281}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
