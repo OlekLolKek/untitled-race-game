@@ -9,7 +9,7 @@ namespace Rewards
 {
     public class DailyRewardController
     {
-        private DailyRewardView _dailyRewardView;
+        private readonly DailyRewardView _dailyRewardView;
         private List<ContainerSlotRewardView> _slots;
 
         private bool _isGetReward;
@@ -91,6 +91,7 @@ namespace Rewards
                         $"{currentClaimCooldown.Days:D2}:{currentClaimCooldown.Hours:D2}:{currentClaimCooldown.Minutes:D2}:{currentClaimCooldown.Seconds:D2}";
 
                     _dailyRewardView.TimerNewReward.text = $"Time to get the next reward: {timeGetReward}";
+                    _dailyRewardView.ProgressBar.fillAmount = currentClaimCooldown.Seconds / _dailyRewardView.TimeCooldown;
                 }
             }
 
@@ -135,6 +136,7 @@ namespace Rewards
         private void ResetTimer()
         {
             PlayerPrefs.DeleteAll();
+            _dailyRewardView.ProgressBar.fillAmount = 0.0f;
         }
     }
 }

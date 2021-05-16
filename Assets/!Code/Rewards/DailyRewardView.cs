@@ -25,6 +25,7 @@ namespace Rewards
         [SerializeField] private ContainerSlotRewardView _containerSlotRewardView;
         [SerializeField] private Button _getRewardButton;
         [SerializeField] private Button _resetButton;
+        [SerializeField] private Image _progressBar;
 
         public float TimeCooldown => _timeCooldown;
         public float TimeDeadLine => _timeDeadLine;
@@ -34,6 +35,7 @@ namespace Rewards
         public ContainerSlotRewardView ContainerSlotRewardView => _containerSlotRewardView;
         public Button GetRewardButton => _getRewardButton;
         public Button ResetButton => _resetButton;
+        public Image ProgressBar => _progressBar;
 
         public int CurrentSlotInActive
         {
