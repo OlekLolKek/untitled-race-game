@@ -17,8 +17,9 @@ namespace Tweening
         [SerializeField] private Ease _easeCurve = Ease.Linear;
         [SerializeField] private float _duration = 0.6f;
 
-        private float _strength = 30.0f;
+        private Vector3 _minScale = new Vector3(0.9f, 0.9f);
         private RectTransform _rectTransform;
+        private float _strength = 30.0f;
 
         protected override void Awake()
         {
@@ -45,6 +46,12 @@ namespace Tweening
                     break;
                 case ButtonAnimationType.ChangePosition:
                     _rectTransform.DOShakeAnchorPos(_duration, Vector2.one * _strength).SetEase(_easeCurve);
+                    break;
+                case ButtonAnimationType.ChangeScale:
+                    var sequence = DOTween.Sequence();
+                    sequence.Append(_rectTransform.DOScale(new Vector3(0.9f, 0.9f), _duration).SetEase(_easeCurve));
+                    sequence.Append(_rectTransform.DOScale(Vector3.one, _duration).SetEase(_easeCurve));
+                    sequence.onComplete += () => sequence.Kill();
                     break;
                 default:
                     throw new NotImplementedException(
