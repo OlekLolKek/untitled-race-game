@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ namespace Inventory
         [SerializeField] private InventoryItemView _inventoryItemViewPrefab;
         [SerializeField] private Button _backButton;
         [SerializeField] private Transform _itemsRoot;
+        [SerializeField] private float _tweenDuration = 0.25f;
         private List<IItem> _itemInfoCollection;
         
         public event EventHandler<IItem> Selected;
@@ -25,11 +27,15 @@ namespace Inventory
         public void Show()
         {
             gameObject.SetActive(true);
+            var sequence = DOTween.Sequence();
+            sequence.Append(transform.DOScale(Vector3.one, _tweenDuration));
         }
 
         public void Hide()
         {
-            gameObject.SetActive(false);
+            var sequence = DOTween.Sequence();
+            sequence.Append(transform.DOScale(Vector3.zero, _tweenDuration));
+            sequence.onComplete += () => gameObject.SetActive(false);
         }
         
         public void Display(List<IItem> itemInfoCollection)
@@ -41,7 +47,6 @@ namespace Inventory
                 var button = Instantiate(_inventoryItemViewPrefab, _itemsRoot);
                 button.Image.sprite = itemInfoCollection[i].Info.Icon;
                 var i1 = i;
-                //button.Button.onClick.AddListener(() => OnItemButtonClicked(_itemInfoCollection[i1]));
                 button.Toggle.onValueChanged.AddListener(value => OnItemToggleValueChanged(value, _itemInfoCollection[i1]));
                 button.Toggle.isOn = _itemInfoCollection[i].IsSelected;
             }
@@ -88,6 +93,11 @@ namespace Inventory
         protected virtual void OnDeselected(IItem e)
         {
             Deselected?.Invoke(this, e);
+        }
+
+        private void OnDestroy()
+        {
+            transform.DOKill();
         }
     }
 }

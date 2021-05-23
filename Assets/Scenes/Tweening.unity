@@ -708,9 +708,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  _buttonAnimationType: 2
+  _buttonAnimationType: 3
   _easeCurve: 1
-  _duration: 0.6
+  _duration: 0.1
 --- !u!114 &1077311985
 MonoBehaviour:
   m_ObjectHideFlags: 0
