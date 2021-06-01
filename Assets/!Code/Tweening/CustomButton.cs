@@ -18,6 +18,7 @@ namespace Tweening
         [SerializeField] private float _duration = 0.6f;
 
         private RectTransform _rectTransform;
+        private Sequence _sequence;
         
         private readonly Vector3 _minScale = new Vector3(0.9f, 0.9f);
         private readonly float _strength = 30.0f;
@@ -49,16 +50,27 @@ namespace Tweening
                     _rectTransform.DOShakeAnchorPos(_duration, Vector2.one * _strength).SetEase(_easeCurve);
                     break;
                 case ButtonAnimationType.ChangeScale:
-                    var sequence = DOTween.Sequence();
-                    sequence.Append(_rectTransform.DOScale(_minScale, _duration).SetEase(_easeCurve));
-                    sequence.Append(_rectTransform.DOScale(Vector3.one, _duration).SetEase(_easeCurve));
-                    sequence.onComplete += () => sequence.Kill();
+                    _sequence = DOTween.Sequence();
+                    _sequence.Append(_rectTransform.DOScale(_minScale, _duration).SetEase(_easeCurve));
+                    _sequence.Append(_rectTransform.DOScale(Vector3.one, _duration).SetEase(_easeCurve));
                     break;
                 default:
                     throw new NotImplementedException(
                         $"{_buttonAnimationType} is not supported in {nameof(ActivateAnimation)}.");
             }
         }
+
+        #region Overrides of UIBehaviour
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            _sequence.Kill();
+            _sequence = null;
+            transform.DOKill();
+        }
+
+        #endregion
 
         #endregion
     }

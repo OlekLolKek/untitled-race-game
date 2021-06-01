@@ -24,6 +24,7 @@ namespace Tweening
         {
             _openPopupButton.onClick.RemoveAllListeners();
             _changeTextButton.onClick.RemoveAllListeners();
+            _changeText.DOKill();
         }
 
         private void ChangeText()

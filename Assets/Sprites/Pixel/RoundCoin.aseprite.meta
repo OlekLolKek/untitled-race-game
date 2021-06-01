@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: cd8b4d2feab6eac41bb6375d145de91e
+guid: 0727a2273d1303a47961788fef36238b
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 2
   userData: 
-  assetBundleName: ui_graphic_resource
+  assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: d1956ce1ff810451f9738b29e9df561a, type: 3}
   settings:
@@ -33,10 +33,10 @@ ScriptedImporter:
     wrapModeW: 0
     alphaIsTransparency: 1
     spriteMode: 1
-    spritePixelsPerUnit: 16
+    spritePixelsPerUnit: 100
     spriteTessellationDetail: 0
     spriteExtrude: 1
-    spriteMeshType: 0
+    spriteMeshType: 1
     spriteAlignment: 0
     spritePivot: {x: 0, y: 0}
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -67,18 +67,6 @@ ScriptedImporter:
     mipmapFadeDistanceEnd: 3
   animationSettings: []
   texture: {instanceID: 0}
-  spriteImportData:
-  - name: PremiumCoin
-    rect:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 32
-      height: 32
-    alignment: 0
-    pivot: {x: 0.5, y: 0.5}
-    border: {x: 0, y: 0, z: 0, w: 0}
-    tessellationDetail: 0
-    spriteID: 6446b57e179d90a499b156bd368b53e3
+  spriteImportData: []
   spriteRects: []
-  selectedImporter: 1
+  selectedImporter: 0

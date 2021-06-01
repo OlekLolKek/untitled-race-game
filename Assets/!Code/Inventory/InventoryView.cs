@@ -14,6 +14,7 @@ namespace Inventory
         [SerializeField] private Transform _itemsRoot;
         [SerializeField] private float _tweenDuration = 0.25f;
         private List<IItem> _itemInfoCollection;
+        private Sequence _sequence;
         
         public event EventHandler<IItem> Selected;
         public event EventHandler<IItem> Deselected;
@@ -27,15 +28,15 @@ namespace Inventory
         public void Show()
         {
             gameObject.SetActive(true);
-            var sequence = DOTween.Sequence();
-            sequence.Append(transform.DOScale(Vector3.one, _tweenDuration));
+            _sequence = DOTween.Sequence();
+            _sequence.Append(transform.DOScale(Vector3.one, _tweenDuration));
         }
 
         public void Hide()
         {
-            var sequence = DOTween.Sequence();
-            sequence.Append(transform.DOScale(Vector3.zero, _tweenDuration));
-            sequence.onComplete += () => gameObject.SetActive(false);
+            _sequence = DOTween.Sequence();
+            _sequence.Append(transform.DOScale(Vector3.zero, _tweenDuration));
+            _sequence.onComplete += () => gameObject.SetActive(false);
         }
         
         public void Display(List<IItem> itemInfoCollection)
@@ -98,6 +99,7 @@ namespace Inventory
         private void OnDestroy()
         {
             transform.DOKill();
+            _sequence = null;
         }
     }
 }

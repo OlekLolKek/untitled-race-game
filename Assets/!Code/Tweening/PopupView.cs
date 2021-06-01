@@ -10,6 +10,7 @@ namespace Tweening
     {
         [SerializeField] private Button _closePopupButton;
         [SerializeField] private float _duration = 0.3f;
+        private Sequence _sequence;
 
         private void Start()
         {
@@ -19,6 +20,9 @@ namespace Tweening
         private void OnDestroy()
         {
             _closePopupButton.onClick.RemoveAllListeners();
+            transform.DOKill();
+            _sequence.Kill();
+            _sequence = null;
         }
 
         public void ShowPopup()
@@ -35,23 +39,23 @@ namespace Tweening
 
         private void AnimationShow()
         {
-            var sequence = DOTween.Sequence();
+            _sequence = DOTween.Sequence();
 
-            sequence.Insert(0.0f, transform.DOScale(Vector3.one, _duration));
-            sequence.OnComplete(() =>
+            _sequence.Insert(0.0f, transform.DOScale(Vector3.one, _duration));
+            _sequence.OnComplete(() =>
             {
-                sequence = null;
+                _sequence = null;
             });
         }
 
         private void AnimationHide()
         {
-            var sequence = DOTween.Sequence();
+            _sequence = DOTween.Sequence();
 
-            sequence.Insert(0.0f, transform.DOScale(Vector3.zero, _duration));
-            sequence.OnComplete(() =>
+            _sequence.Insert(0.0f, transform.DOScale(Vector3.zero, _duration));
+            _sequence.OnComplete(() =>
             {
-                sequence = null;
+                _sequence = null;
                 gameObject.SetActive(false);
             });
         }
