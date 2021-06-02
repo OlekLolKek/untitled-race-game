@@ -763,7 +763,13 @@ MonoBehaviour:
     AudioSource: {fileID: 1105843759}
   - NameAssetBundle: quack
     AudioSource: {fileID: 1547541572}
+  _loadPrefab:
+    m_AssetGUID: b2e7e6ad48f82c34e9ea5b26a4dfdb76
+    m_SubObjectName: 
+    m_SubObjectType: 
+  _mountSpawnTransform: {fileID: 1114908642}
   _loadAssetsButton: {fileID: 1547541569}
+  _spawnAssetsButton: {fileID: 757445794}
 --- !u!1 &1114908641
 GameObject:
   m_ObjectHideFlags: 0
