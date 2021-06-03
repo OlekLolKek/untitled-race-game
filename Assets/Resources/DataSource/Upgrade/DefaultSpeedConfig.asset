@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7a85358b1694e419eba2f29944f62f7, type: 3}
-  m_Name: Railing
+  m_Script: {fileID: 11500000, guid: 3159b5e07ca248a99510c34b4c7a7d7b, type: 3}
+  m_Name: DefaultSpeedConfig
   m_EditorClassIdentifier: 
-  _id: 0
-  _title: Railing
-  _description: Enter description here pls
-  _icon: {fileID: 21300000, guid: 8e2d39c3197b66d43879d38ba9a40dd0, type: 3}
+  _itemConfig: {fileID: 11400000, guid: 26aa8bcc9b1edff4e93fa7d06559afe0, type: 2}
+  _type: 1
+  _value: 24

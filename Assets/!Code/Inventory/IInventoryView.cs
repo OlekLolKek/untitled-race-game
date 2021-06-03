@@ -9,6 +9,8 @@ namespace Inventory
     {
         event EventHandler<IItem> Selected;
         event EventHandler<IItem> Deselected;
+        event Action InventoryClosed;
+        void Initialize();
         void Display(List<IItem> itemInfoCollection);
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 namespace Inventory
@@ -8,19 +9,27 @@ namespace Inventory
     public class InventoryView : MonoBehaviour, IInventoryView
     {
         [SerializeField] private InventoryItemView _inventoryItemViewPrefab;
+        [SerializeField] private Button _backButton;
+        [SerializeField] private Transform _itemsRoot;
         private List<IItem> _itemInfoCollection;
         
         public event EventHandler<IItem> Selected;
         public event EventHandler<IItem> Deselected;
+        public event Action InventoryClosed;
+
+        public void Initialize()
+        {
+            _backButton.onClick.AddListener(OnBackButtonClicked);
+        }
         
         public void Show()
         {
-            Debug.Log("Show");
+            gameObject.SetActive(true);
         }
 
         public void Hide()
         {
-            Debug.Log("Hide");
+            gameObject.SetActive(false);
         }
         
         public void Display(List<IItem> itemInfoCollection)
@@ -29,14 +38,46 @@ namespace Inventory
 
             for (int i = 0; i < _itemInfoCollection.Count; i++)
             {
-                var position = Vector3.zero;
-                Debug.Log(_inventoryItemViewPrefab.Image.flexibleWidth);
-                Debug.Log(_inventoryItemViewPrefab.Image.minWidth);
-                Debug.Log(_inventoryItemViewPrefab.Image.preferredWidth);
-                Debug.Log(_inventoryItemViewPrefab.Image.rectTransform.sizeDelta.x);
-                //position.x += 
-                //Instantiate(_inventoryItemViewPrefab,  )
+                var button = Instantiate(_inventoryItemViewPrefab, _itemsRoot);
+                button.Image.sprite = itemInfoCollection[i].Info.Icon;
+                var i1 = i;
+                //button.Button.onClick.AddListener(() => OnItemButtonClicked(_itemInfoCollection[i1]));
+                button.Toggle.onValueChanged.AddListener(value => OnItemToggleValueChanged(value, _itemInfoCollection[i1]));
+                button.Toggle.isOn = _itemInfoCollection[i].IsSelected;
             }
+        }
+
+        private void OnItemButtonClicked(IItem item)
+        {
+            if (item.IsSelected)
+            {
+                OnDeselected(item);
+            }
+            else
+            {
+                OnSelected(item);
+            }
+
+            item.IsSelected = !item.IsSelected;
+        }
+
+        private void OnItemToggleValueChanged(bool value, IItem item)
+        {
+            item.IsSelected = value;
+            
+            if (item.IsSelected)
+            {
+                OnSelected(item);
+            }
+            else
+            {
+                OnDeselected(item);
+            }
+        }
+
+        private void OnBackButtonClicked()
+        {
+            InventoryClosed?.Invoke();
         }
 
         protected virtual void OnSelected(IItem e)

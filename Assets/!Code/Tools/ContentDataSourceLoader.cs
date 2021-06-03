@@ -6,7 +6,7 @@ using Inventory;
 
 namespace Tools
 {
-    internal class ContentDataSourceLoader
+    internal static class ContentDataSourceLoader
     {
         public static List<UpgradeItemConfig> LoadUpgradeItemConfigs(ResourcePath resourcePath)
         {

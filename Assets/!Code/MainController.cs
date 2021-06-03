@@ -28,13 +28,13 @@ internal sealed class MainController : BaseController
         switch (state)
         {
             case GameState.Start:
+                _gameController?.Dispose();
                 _mainMenuController = new MainMenuController(_placeForUi, _profilePlayer,
                     _unityAdsTools);
-                _gameController?.Dispose();
                 break;
             case GameState.Game:
-                _gameController = new GameController(_placeForUi, _profilePlayer);
                 _mainMenuController?.Dispose();
+                _gameController = new GameController(_placeForUi, _profilePlayer);
                 break;
             default:
                 _mainMenuController?.Dispose();
