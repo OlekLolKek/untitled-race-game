@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace Tools
 {
     public sealed class SubscriptionProperty<T> : IReadOnlySubscriptionProperty<T>

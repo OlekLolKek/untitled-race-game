@@ -4,6 +4,7 @@ using Profile;
 using Ui;
 using UnityEngine;
 
+
 internal sealed class MainController : BaseController
 {
     private MainMenuController _mainMenuController;
