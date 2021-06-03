@@ -1,9 +1,10 @@
 ﻿using Tools;
 using UnityEngine;
 
+
 namespace Game.InputLogic
 {
-    internal abstract class BaseInputView : MonoBehaviour
+    public abstract class BaseInputView : MonoBehaviour
     {
         protected float _speed;
         private SubscriptionProperty<float> _leftMove;
