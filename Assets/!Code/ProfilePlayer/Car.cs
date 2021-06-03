@@ -1,14 +1,26 @@
 ﻿
+using Garage;
+
+
 namespace Profile
 {
-    internal sealed class Car
+    internal sealed class Car : IUpgradable
     {
-        public float Speed { get; }
+        private readonly float _defaultSpeed;
         
+        public float Speed { get; set; }
+
         public Car(float speed)
         {
-            Speed = speed;
+            _defaultSpeed = speed;
+            Restore();
         }
+
+        public void Restore()
+        {
+            Speed = _defaultSpeed;
+        }
+
     }
 }
 
