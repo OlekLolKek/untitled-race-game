@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 235052524
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 13865274574841930f98c67b4c98edf2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 4df8c69f2c8a6ad9e3cbf82bb83e4dc3
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Sprites/Pixel/Coin/Coin.png
+- Assets/Sprites/Pixel/RoundCoin/RoundCoin.png
+- Assets/Sprites/Pixel/PremiumCoin.aseprite
+Dependencies: []

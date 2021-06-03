@@ -3,6 +3,7 @@ using Analytic;
 using Profile;
 using UnityEngine;
 
+
 internal sealed class Root : MonoBehaviour
 {
     [SerializeField] private Transform _placeForUi;

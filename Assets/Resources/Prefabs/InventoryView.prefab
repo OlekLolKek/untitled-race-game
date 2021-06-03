@@ -55,6 +55,7 @@ MonoBehaviour:
   _inventoryItemViewPrefab: {fileID: 124476508362771739, guid: e75e0d6a675363240823be406e68560a, type: 3}
   _backButton: {fileID: 3435817658828729130}
   _itemsRoot: {fileID: 6134344868532846322}
+  _tweenDuration: 0.2
 --- !u!222 &6355842479784888872
 CanvasRenderer:
   m_ObjectHideFlags: 0

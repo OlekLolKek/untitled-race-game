@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 3520136616
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 343e4b583b47151a3c562a9a3a4fddd9
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/SFX/quack.mp3
+- Assets/SFX/Coin.wav
+Dependencies: []
