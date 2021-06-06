@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: a289699f92863e447acf8be5a406d452
   m_SerializeEntries:
-  - m_GUID: f02a9019348a56841aa9ebf92051b85b
-    m_Address: Assets_fr
+  - m_GUID: 89a694f7a93fe694db8ef392b82076b9
+    m_Address: Sprites_fr
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fr

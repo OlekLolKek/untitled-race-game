@@ -320,6 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _changingText: {fileID: 261771978}
+  _changingSprite: {fileID: 0}
   _russianButton: {fileID: 2108196985}
   _englishButton: {fileID: 1043400661}
   _frenchButton: {fileID: 1244304251}
@@ -572,6 +573,7 @@ GameObject:
   - component: {fileID: 773611369}
   - component: {fileID: 773611371}
   - component: {fileID: 773611370}
+  - component: {fileID: 773611372}
   m_Layer: 5
   m_Name: Changing Image
   m_TagString: Untagged
@@ -636,6 +638,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773611368}
   m_CullTransparentMesh: 1
+--- !u!114 &773611372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773611368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LocalizedAssetReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:f5a45178626f5bf4fb241f7d1a9891fb
+    m_TableEntryReference:
+      m_KeyId: 6904266752
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 1
+  m_UpdateAsset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 773611370}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_sprite
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &1043400659
 GameObject:
   m_ObjectHideFlags: 0

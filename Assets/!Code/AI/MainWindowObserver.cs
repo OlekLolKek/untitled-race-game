@@ -1,5 +1,11 @@
+using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization.Tables;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
 
 
@@ -10,7 +16,7 @@ namespace AI
         [SerializeField] private TMP_Text _moneyCountText;
         [SerializeField] private TMP_Text _healthCountText;
         [SerializeField] private TMP_Text _forceCountText;
-        
+
         [SerializeField] private TMP_Text _enemyForceCountText;
 
         [SerializeField] private Button _addCoinsButton;
@@ -21,8 +27,13 @@ namespace AI
 
         [SerializeField] private Button _addForceButton;
         [SerializeField] private Button _minusForceButton;
-        
+
         [SerializeField] private Button _fightButton;
+
+        [SerializeField] private AIDataModel _aiMoneyModel;
+        [SerializeField] private AIDataModel _aiForceModel;
+        [SerializeField] private AIDataModel _aiHealthModel;
+        [SerializeField] private AIDataModel _aiEnemyForceModel;
 
         private int _allCountMoneyPlayer;
         private int _allCountHealthPlayer;
@@ -33,6 +44,12 @@ namespace AI
         private Force _force;
 
         private Enemy _enemy;
+        
+        private const string LOCALIZATION_TABLE_NAME = "AISceneText";
+        private const string PLAYERS_MONEY_KEY = "players_money";
+        private const string PLAYERS_HEALTH_KEY = "players_health";
+        private const string PLAYERS_POWER_KEY = "players_power";
+        private const string FORCE_COUNT_KEY = "force_count";
 
         private void Start()
         {
@@ -46,13 +63,13 @@ namespace AI
 
             _force = new Force(nameof(Force));
             _force.Attach(_enemy);
-            
+
             _addCoinsButton.onClick.AddListener(() => ChangeMoney(true));
             _minusCoinsButton.onClick.AddListener((() => ChangeMoney(false)));
-            
+
             _addHealthButton.onClick.AddListener(() => ChangeHealth(true));
             _minusHealthButton.onClick.AddListener(() => ChangeHealth(false));
-            
+
             _addForceButton.onClick.AddListener(() => ChangeForce(true));
             _minusForceButton.onClick.AddListener(() => ChangeForce(false));
 
@@ -70,7 +87,7 @@ namespace AI
                 _allCountMoneyPlayer--;
             }
 
-            ChangeDataWindow(_allCountMoneyPlayer, DataType.Money);
+            StartCoroutine(ChangeDataWindow(_allCountMoneyPlayer, DataType.Money));
         }
 
         private void ChangeHealth(bool isAddCount)
@@ -84,7 +101,7 @@ namespace AI
                 _allCountHealthPlayer--;
             }
 
-            ChangeDataWindow(_allCountHealthPlayer, DataType.Health);
+            StartCoroutine(ChangeDataWindow(_allCountHealthPlayer, DataType.Health));
         }
 
         private void ChangeForce(bool isAddCount)
@@ -98,7 +115,7 @@ namespace AI
                 _allCountForcePlayer--;
             }
 
-            ChangeDataWindow(_allCountForcePlayer, DataType.Force);
+            StartCoroutine(ChangeDataWindow(_allCountForcePlayer, DataType.Force));
         }
 
         private void Fight()
@@ -108,25 +125,48 @@ namespace AI
                 : "<color=#FF0000>Lose!!!</color>");
         }
 
-        private void ChangeDataWindow(int countChangeData, DataType dataType)
+        private IEnumerator ChangeDataWindow(int countChangeData, DataType dataType)
         {
+            StringTable table;
+
+            var loadingOperation =
+                LocalizationSettings.StringDatabase.GetTableAsync(LOCALIZATION_TABLE_NAME);
+            yield return loadingOperation;
+
+            if (loadingOperation.Status == AsyncOperationStatus.Succeeded)
+            {
+                table = loadingOperation.Result;
+            }
+            else
+            {
+                throw new Exception
+                    ($"Could not load String Table{loadingOperation.OperationException}");
+            }
+
             switch (dataType)
             {
                 case DataType.Money:
-                    _moneyCountText.text = $"Player Money: {countChangeData.ToString()}";
+                    _moneyCountText.text =
+                        $"{table.GetEntry(PLAYERS_MONEY_KEY)?.GetLocalizedString()} {countChangeData.ToString()}";
                     _money.Money = countChangeData;
+                    _aiMoneyModel._playerMoney = countChangeData;
                     break;
                 case DataType.Health:
-                    _healthCountText.text = $"Player Health: {countChangeData.ToString()}";
+                    _healthCountText.text =
+                        $"{table.GetEntry(PLAYERS_HEALTH_KEY)?.GetLocalizedString()} {countChangeData.ToString()}";
                     _health.Health = countChangeData;
+                    _aiHealthModel._playerHealth = countChangeData;
                     break;
                 case DataType.Force:
-                    _forceCountText.text = $"Player Force: {countChangeData.ToString()}";
+                    _forceCountText.text =
+                        $"{table.GetEntry(PLAYERS_POWER_KEY)?.GetLocalizedString()} {countChangeData.ToString()}";
                     _force.Force = countChangeData;
+                    _aiForceModel._playerForce = countChangeData;
                     break;
             }
 
-            _enemyForceCountText.text = $"Enemy Force = {_enemy.Force}";
+            _enemyForceCountText.text = $"{table.GetEntry(FORCE_COUNT_KEY)?.GetLocalizedString()} {_enemy.Force}";
+            _aiEnemyForceModel._enemyForce = _enemy.Force;
         }
     }
 }

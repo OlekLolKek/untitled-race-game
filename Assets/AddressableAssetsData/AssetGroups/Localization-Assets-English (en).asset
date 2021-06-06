@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: dc65b22d699362144a911e0202155188
   m_SerializeEntries:
   - m_GUID: 827b2f4becd9c9845ae1cc4b9fe3a3bb
-    m_Address: Coin
+    m_Address: Coin0
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

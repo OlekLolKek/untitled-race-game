@@ -13,15 +13,33 @@ MonoBehaviour:
   m_Name: Sprites Shared Data
   m_EditorClassIdentifier: 
   m_TableCollectionName: Sprites
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
-  m_Entries: []
+  m_TableCollectionNameGuidString: f5a45178626f5bf4fb241f7d1a9891fb
+  m_Entries:
+  - m_Id: 6904266752
+    m_Key: 'translate_sprite
+
+'
+    m_Metadata:
+      m_Items: []
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - id: 0
   m_KeyGenerator:
-    id: 0
+    id: 1
   references:
     version: 1
     00000000:
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 6904266752
+          m_TableCodes:
+          - en
+          - fr
+          - ru
+        m_TypeString: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+    00000001:
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
         m_CustomEpoch: 1622823253657

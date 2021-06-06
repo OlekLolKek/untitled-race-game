@@ -54,8 +54,6 @@ namespace AI
                     _forcePlayer = dataPlayer.Force;
                     break;
             }
-            
-            Debug.Log($"Notified {_name} change to {dataPlayer}");
         }
 
         #endregion

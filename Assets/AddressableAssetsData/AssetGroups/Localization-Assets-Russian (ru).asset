@@ -16,7 +16,12 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 650fc69ed4a19a94c910ad458ad839e7
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 2183ddcc89e634d48b59e73f24bc5537
+    m_Address: RoundCoin0
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 769036f390df3604696c7ab9031732b2, type: 2}
   m_SchemaSet:
