@@ -59,7 +59,6 @@ namespace Garage
                 _upgradable.Restore();
             }
             
-            Debug.Log(items.Count);
             foreach (var item in items)
             {
                 if (item.IsSelected)
@@ -82,7 +81,6 @@ namespace Garage
         public void Enter()
         {
             _inventoryController.ShowInventory(Exit);
-            Debug.Log($"Enter: car speed is {_upgradable.Speed}");
         }
 
         public void Exit()
@@ -93,7 +91,6 @@ namespace Garage
                 _upgradeHandlersRepository.Collection,
                 _defaultHandlers.Collection
                 );
-            Debug.Log($"Exit: car speed is {_upgradable.Speed}");
         }
 
         #region Overrides of BaseController

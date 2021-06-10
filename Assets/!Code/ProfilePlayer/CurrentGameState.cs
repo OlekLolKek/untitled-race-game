@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace Profile
 {
     internal class CurrentGameState

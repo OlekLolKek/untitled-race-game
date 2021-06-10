@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+
 namespace Game.InputLogic
 {
     internal sealed class InputTapView : BaseInputView

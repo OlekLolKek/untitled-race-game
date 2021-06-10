@@ -11,7 +11,7 @@ namespace AI
         private const float FORCE = 1.5f;
         private const int MAX_PLAYER_HEALTH = 20;
 
-        private string _name;
+        private readonly string _name;
         private int _moneyPlayer;
         private int _healthPlayer;
         private int _forcePlayer;
@@ -54,8 +54,6 @@ namespace AI
                     _forcePlayer = dataPlayer.Force;
                     break;
             }
-            
-            Debug.Log($"Notified {_name} change to {dataPlayer}");
         }
 
         #endregion

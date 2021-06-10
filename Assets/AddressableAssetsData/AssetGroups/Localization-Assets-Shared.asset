@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Shared
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-Shared
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 3210ffd91b97ce54d95fad42bae4f55e
+  m_SerializeEntries:
+  - m_GUID: 8185b07c3d256984ca1cc12666c67404
+    m_Address: Assets/Localization/Font Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: f5a45178626f5bf4fb241f7d1a9891fb
+    m_Address: Assets/Localization/Sprites Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 207d47bf97c578e49910408af176303e
+    m_Address: Assets/Localization/AISceneText/AISceneText Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 769036f390df3604696c7ab9031732b2, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ec6cd8f8b15d14545ba43ec78ca22929, type: 2}
+    - {fileID: 11400000, guid: c1860e1d3c963574a8a435d66c31b94f, type: 2}
